@@ -1,38 +1,27 @@
 import mongoose from "mongoose";
 
 const companySchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        unique: true,
+    name:{
+        type:String,
+        required:true,
+        unique:true
     },
-    description: {
-        type: String,
+    description:{
+        type:String, 
     },
-    logo: {
-        type: String, //url of the logo
+    website:{
+        type:String 
     },
-    website: {
-        type: String,
+    location:{
+        type:String 
     },
-    location: {
-        type: String,
+    logo:{
+        type:String // URL to company logo
     },
-    jobs: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Job",
-        },
-    ],
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true,
-    },
-    applications: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Application", 
-    }],
-},{timestamps: true});
-
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        required:true
+    }
+},{timestamps:true})
 export const Company = mongoose.model("Company", companySchema);
